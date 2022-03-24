@@ -1,0 +1,25 @@
+interface a {
+    a: String
+}
+
+type Comment implements a{
+    userId: Int @deprecated(reason: "Use newField.")
+    comment: String
+    star: Int
+}
+type Link {
+    _id: Int!
+    url: String!
+    description: String!
+    comments: [Comment]
+}
+
+type Query {
+    links: [Link!]!
+    link(_id: Int): Link
+    comments(userId: Int): [Comment] 
+}
+
+Query:{
+
+}
